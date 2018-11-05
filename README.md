@@ -1,0 +1,5 @@
+spring boot-jpa整合QueryDSL来简化复杂操作
+
+ Querydsl定义了一种常用的静态类型语法，用于在持久域模型数据之上进行查询。JDO和JPA是Querydsl的主要集成技术。本文旨在介绍如何使用Querydsl与JPA组合使用。JPA的Querydsl是JPQL和Criteria查询的替代方法。QueryDSL仅仅是一个通用的查询框架，专注于通过Java API构建类型安全的SQL查询。
+
+参考博客：https://blog.csdn.net/liuchuanhong1/article/details/70244261 
