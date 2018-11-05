@@ -1,0 +1,98 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.deleba.dsl</groupId>
+	<artifactId>deleba-dsl</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>deleba-dsl</name>
+	<description>deleba-dsl</description>
+
+	<properties>
+		<boot.version>1.5.8.RELEASE</boot.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<version>${boot.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.querydsl</groupId>
+			<artifactId>querydsl-jpa</artifactId>
+			<version>4.1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.querydsl</groupId>
+			<artifactId>querydsl-apt</artifactId>
+			<version>4.1.4</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<version>${boot.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>deleba-qsl</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>develop</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<pom.server.port>20300</pom.server.port>
+				<pom.profiles.active>dev</pom.profiles.active>
+
+			</properties>
+		</profile>
+		<profile>
+			<id>dev-all</id>
+			<properties>
+				<pom.server.port>80</pom.server.port>
+				<pom.profiles.active>dev</pom.profiles.active>
+
+			</properties>
+		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<pom.server.port>80</pom.server.port>
+				<pom.profiles.active>test</pom.profiles.active>
+
+			</properties>
+		</profile>
+		<profile>
+			<id>online</id>
+			<properties>
+				<pom.server.port>80</pom.server.port>
+				<pom.profiles.active>online</pom.profiles.active>
+
+			</properties>
+		</profile>
+	</profiles>
+</project>
