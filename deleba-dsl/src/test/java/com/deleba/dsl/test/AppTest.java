@@ -82,7 +82,7 @@ public class AppTest {
 	public static void main(String[] args){
 	
 		try {
-			User user = new User();
+			User user = new User(); 
 			PropertyDescriptor p = new PropertyDescriptor("name", User.class);
 			Method writeMethod = p.getWriteMethod();
 			writeMethod.invoke(user, "dd");
